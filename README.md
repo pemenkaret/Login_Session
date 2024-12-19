@@ -7,6 +7,7 @@ Pada saat pengguna mencoba login, Anda dapat menggunakan Auth::attempt() untuk m
 Contoh kode untuk proses login:
 
 php
+
 if (Auth::attempt($request->only('email', 'password'))) {
     return redirect()->route('dashboard');  // Redirect ke dashboard jika login berhasil
 }
@@ -21,6 +22,7 @@ Pada saat pengguna logout, Anda dapat menggunakan Auth::logout() untuk menghapus
 Contoh kode untuk proses logout:
 
 php
+
 public function logout()
 {
     Auth::logout();  // Menghapus sesi pengguna
@@ -37,6 +39,7 @@ Untuk membatasi akses hanya kepada pengguna yang sudah login, Anda dapat menggun
 Contoh penerapan middleware auth pada route:
 
 php
+
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Penjelasan:
 
@@ -49,6 +52,7 @@ Pada bagian register, setelah pengguna berhasil mendaftar, Anda dapat langsung l
 Contoh kode untuk login otomatis setelah registrasi:
 
 php
+
 public function register(Request $request)
 {
     // Validasi input
